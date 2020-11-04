@@ -1,6 +1,6 @@
 <ul>
-  <% @bookmarks.each do |bookmark| %>
-    <li><%= bookmark %></li>
+  <% @bookmarks.each do |url, title| %>
+    <li><%= title %></li>
   <% end %>
 </ul>
 <form action="/add">

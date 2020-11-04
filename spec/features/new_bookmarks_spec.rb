@@ -6,7 +6,8 @@ feature 'Add a new bookmark' do
     visit '/bookmarks'
     click_button 'Add New Bookmark'
     fill_in :url, with:'http://www.bbc.co.uk'
+    fill_in :title, with:'News'
     click_button 'Add'
-    expect(page).to have_content "http://www.bbc.co.uk"
+    expect(page).to have_content 'News'
   end
 end
