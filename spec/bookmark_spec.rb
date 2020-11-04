@@ -12,22 +12,22 @@ it 'returns a list of bookmarks' do
   connection = PG.connect(dbname: 'bookmark_manager_test')
 
   # Add the test data
-  Bookmark.create('http://www.makersacademy.com')
-  Bookmark.create('http://www.destroyallsoftware.com')
-  Bookmark.create('http://www.google.com')
+  Bookmark.create(url: 'http://www.makersacademy.com', title: 'Makers')
+  Bookmark.create(url: 'http://www.destroyallsoftware.com', title: 'Tech')
+  Bookmark.create(url: 'http://www.google.com', title: 'Google')
 
   bookmarks = Bookmark.all
 
-  expect(bookmarks).to include('http://www.makersacademy.com')
-  expect(bookmarks).to include('http://www.destroyallsoftware.com')
-  expect(bookmarks).to include('http://www.google.com')
+  expect(bookmarks).to include('Makers')
+  expect(bookmarks).to include('Tech')
+  expect(bookmarks).to include('Google')
 end
 end
 
 describe '.create' do
   it 'creates a new bookmark' do
-    Bookmark.create('http://wwww.testbookmark.com')
-    expect(Bookmark.all).to include('http://wwww.testbookmark.com')
+    Bookmark.create(url: 'http://wwww.testbookmark.com', title: 'Test')
+    expect(Bookmark.all).to include('Test')
   end
 end
 end
